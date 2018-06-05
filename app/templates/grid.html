@@ -1,0 +1,111 @@
+<ul class="sidebar-menu">
+    <li class="header">管理菜单</li>
+    <li class="treeview" id="g-1">
+        <a href="#">
+            <i class="fa fa-home" aria-hidden="true"></i>
+            <span>首页</span>
+        </a>
+        <ul class="treeview-menu">
+            <li id="g-1-1">
+                <a href="{{ url_for('admin.index') }}">
+                    <i class="fa fa-circle-o"></i> 数据统计
+                </a>
+            </li>
+        </ul>
+    </li>
+        <li class="treeview" id="g-1">
+        <a href="#">
+            <i class="fa fa-files-o" aria-hidden="true"></i>
+            <span>数据采集</span>
+        </a>
+        <ul class="treeview-menu">
+            <li id="g-2-1">
+                <a href="{{ url_for('admin.task_add', page=1) }}">
+                    <i class="fa fa-circle-o"></i> 新建采集任务
+                </a>
+            </li>
+            <li id="g-2-2">
+                <a href="{{ url_for('admin.task_list', page=1) }}">
+                    <i class="fa fa-circle-o"></i> 任务列表
+                </a>
+            </li>
+            <li id="g-2-3">
+                <a href="{{ url_for('admin.task_list', page=1) }}">
+                    <i class="fa fa-circle-o"></i> 数据处理
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="treeview" id="g-8">
+        <a href="#">
+            <i class="fa fa-file-text" aria-hidden="true"></i>
+            <span>日志管理</span>
+        </a>
+        <ul class="treeview-menu">
+            <li id="g-8-1">
+                <a href="{{ url_for('admin.oplog_list', page=1) }}">
+                    <i class="fa fa-circle-o"></i> 操作日志列表
+                </a>
+            </li>
+            <li id="g-8-2">
+                <a href="{{ url_for('admin.adminloginlog_list', page=1) }}">
+                    <i class="fa fa-circle-o"></i> 管理员登录日志列表
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="treeview" id="g-9">
+        <a href="#">
+            <i class="fa fa-lock" aria-hidden="true"></i>
+            <span>权限管理</span>
+        </a>
+        <ul class="treeview-menu">
+            <li id="g-9-1">
+                <a href="{{ url_for('admin.auth_add') }}">
+                    <i class="fa fa-circle-o"></i> 添加权限
+                </a>
+            </li>
+            <li id="g-9-2">
+                <a href="{{ url_for('admin.auth_list', page=1) }}">
+                    <i class="fa fa-circle-o"></i> 权限列表
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="treeview" id="g-10">
+        <a href="#">
+            <i class="fa fa-user-secret" aria-hidden="true"></i>
+            <span>角色管理</span>
+        </a>
+        <ul class="treeview-menu">
+            <li id="g-10-1">
+                <a href="{{ url_for('admin.role_add') }}">
+                    <i class="fa fa-circle-o"></i> 添加角色
+                </a>
+            </li>
+            <li id="g-10-2">
+                <a href="{{ url_for('admin.role_list', page=1) }}">
+                    <i class="fa fa-circle-o"></i> 角色列表
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="treeview" id="g-11">
+        <a href="#">
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            <span>管理员管理</span>
+        </a>
+        <ul class="treeview-menu">
+            <li id="g-11-1">
+                <a href="{{ url_for('admin.admin_add') }}">
+                    <i class="fa fa-circle-o"></i> 添加管理员
+                </a>
+            </li>
+            <li id="g-11-2">
+                <a href="{{ url_for('admin.admin_list', page=1) }}">
+                    <i class="fa fa-circle-o"></i> 管理员列表
+                </a>
+            </li>
+        </ul>
+    </li>
+</ul>

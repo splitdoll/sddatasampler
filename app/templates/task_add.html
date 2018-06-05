@@ -1,0 +1,98 @@
+{% extends "admin.html" %}
+
+{% block content %}
+<section class="content-header">
+    <h1>添加采集任务</h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>数据采集</a></li>
+        <li class="active">添加采集任务</li>
+    </ol>
+</section>
+<section class="content" id="showcontent">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-primary">
+                <form role="form" method="post" enctype="multipart/form-data">
+                    {% for msg in get_flashed_messages(category_filter=["ok"]) %}
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <h4><i class="icon fa fa-check"></i> 操作成功 </h4>
+                        {{ msg }}
+                    </div>
+                    {% endfor %}
+                    {% for msg in get_flashed_messages(category_filter=["err"]) %}
+                    <div class="alert alert-danger alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <h4><i class="icon fa fa-ban"></i> 操作失败 </h4>
+                        {{ msg }}
+                    </div>
+                    {% endfor %}
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="input_name">{{ form.name.label }}</label>
+                            {{ form.name }}
+                            {% for err in form.name.errors %}
+                            <div class="col-md-12" style="color: red">{{ err }}</div>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            <label for="input_style_id">{{ form.style_id.label }}</label>
+                            {{ form.style_id }}
+                            {% for err in form.style_id.errors %}
+                            <div class="col-md-12" style="color: red">{{ err }}</div>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            <label for="input_decade_id">{{ form.decade_id.label }}</label>
+                            {{ form.decade_id }}
+                            {% for err in form.decade_id.errors %}
+                            <div class="col-md-12" style="color: red">{{ err }}</div>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            <label for="input_datasourcd_id">{{ form.datasource_id.label }}</label>
+                            {{ form.datasource_id }}
+                            {% for err in form.datasource_id.errors %}
+                            <div class="col-md-12" style="color: red">{{ err }}</div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                        {{ form.csrf_token }}
+                        {{ form.submit }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block js %}
+<script>
+    // 保存当前选中项的内容
+    var style = $("#input_star").find("option:selected").text();
+    var datasource = $("#input_tag_id").find("option:selected").text();
+
+    if (style != "未选择") {  // 是，则直接移除‘未选择’项
+        $("#style option:first").remove();
+    } else {  // 否，则在改变选择时移除
+        $("#style").one("change", function () {
+            $("#style option:first").remove();
+        });
+    }
+    if (datasource != "未选择") {
+        $("#datasource option:first").remove();
+    } else {
+        $("#datasource").one("change", function () {
+            $("#datasource option:first").remove();
+        });
+    }
+</script>
+<script>
+    $(document).ready(function () {
+        $("#g-3").addClass("active");
+        $("#g-3-1").addClass("active");
+    });
+</script>
+{% endblock %}
