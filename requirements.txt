@@ -1,4 +1,4 @@
-aiohttp==2.3.3
+aiohttp==3.7.4
 aiomysql==0.0.11
 alembic==0.9.7
 appnope==0.1.0
