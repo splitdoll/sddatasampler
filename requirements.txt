@@ -53,7 +53,7 @@ numpy==1.13.3
 oauth2==1.9.0.post1
 oauthlib==2.0.6
 olefile==0.44
-opencv-python==3.4.0.12
+opencv-python==3.4.7.28
 parsel==1.4.0
 parso==0.1.1
 passlib==1.7.1
